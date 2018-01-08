@@ -201,7 +201,8 @@ static void belle_sip_header_address_destroy(belle_sip_header_address_t* address
 }
 
 static void _belle_sip_header_address_clone(belle_sip_header_address_t *addr, const belle_sip_header_address_t *orig){
-	CLONE_STRING(belle_sip_header_address,displayname,addr,orig)
+	CLONE_STRING(belle_sip_header_address,displayname,addr,orig);
+        CLONE_STRING(belle_sip_header_address,automatic,addr,orig)
 	if (belle_sip_header_address_get_uri(orig)) {
 		belle_sip_header_address_set_uri(addr,BELLE_SIP_URI(belle_sip_object_clone(BELLE_SIP_OBJECT(belle_sip_header_address_get_uri(orig)))));
 	}
